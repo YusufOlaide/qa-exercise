@@ -24,11 +24,13 @@ router.get('/callback', function getSingleSignOnUser(req, res, next) {
 
   getSingleSignToken(code, uri, (err, resp, body) => {
     const rstr = JSON.parse(body);
-
+    console.log('Goat', rstr.access_token);
     getUserProfile(rstr.access_token, (err, resp, body) => {
       if (err) return next(err);
-
+      // console.log('RESP',resp);
       const state = Buffer.from(JSON.stringify(claimMapper(JSON.parse(body)))).toString('base64');
+
+      // console.log(JSON.parse(body));
       res.redirect(`${req.query.state}?login=${state}`);
     });
   });
@@ -60,11 +62,13 @@ function getSingleSignToken(code, redirectUri, callback) {
  * @param  {String} accessToken OAuth access token
  * @param  {Function} callback  Callback
  */
-function getUserProfile(accessToken, callback) {
+async function getUserProfile(accessToken, callback) {
   const url =
     `https://${config.domain}/userinfo?access_token=${accessToken}`;
+  // const url = `https://www.googleapis.com/plus/v1/people/me?access_token=${accessToken}`;
 
-  request.get({ url }, callback);
+  return request.get({ url }, callback);
+  
 }
 
 module.exports = router;

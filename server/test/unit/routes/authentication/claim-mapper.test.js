@@ -10,8 +10,8 @@ describe('claim mapper', () => {
   it('should get claims from the payload', () => {
     const mapped = claimMapper(response);
     
-    (mapped.name !== null).should.equal(true);
-    (mapped.surname !== null).should.equal(true);
+    (mapped.name == "Johnny").should.equal(true);
+    (mapped.surname == "Halife").should.equal(true);
     mapped.picture.should.equal(response.picture);
   });
 });
