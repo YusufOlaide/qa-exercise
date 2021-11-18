@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="1" failures="0" name="Build Wealth" skipped="0" tests="2" time="22.87" timestamp="2021-11-16 09:01:13"><testcase name="Verify all texts in H1 tag on Build Wealth Page"/><testcase name="Calculate Wealth Value for Tope"><error type="java.lang.NullPointerException"/><system-err>null&#13;
+com.org.rise.capital.steps.WealthFormCalculationStepDefinition.userEntersFormParameters(WealthFormCalculationStepDefinition.java:63)&#13;
+✽.User enters the required form parameters(file:///C:/Users/Yusuff.Olaide/eclipse-workspace/part_two/src/test/resources/features/build_wealth/build_wealth.feature:13)&#13;
+</system-err></testcase></testsuite>
